@@ -1,0 +1,19 @@
+{"data":[
+    {
+        "id":"1",
+        "nome":"pedro",
+        "matricula":1234,
+        "salario":1234,
+        "cargo":"pol",
+        "especializacao":"popot"
+     },
+    {
+        "id":"2",
+        "nome":"pedroca",
+        "matricula":12345,
+        "salario":12346,
+        "cargo":"poldvs",
+        "especializacao":"popotds"
+     }
+ ]
+}
