@@ -17,7 +17,8 @@ import { EditarComponent } from './editar/editar.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [PessoasService],
   bootstrap: [AppComponent]
