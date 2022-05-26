@@ -33,7 +33,11 @@ export class AppComponent {
   }
 
   
-
+  guardar(){
+    this.servicoPessoas.guardarPessoas(this.nome.value, this.matricula.value, this.salario.value, this.cargo.value, this.especializacao).subscribe((pessoas:Pessoas[])=>{
+      console.log(snap);
+    });
+  }
   apagar(id:string){
     this.servicoPessoas.apagarPessoas(id).subscribe(snap=>{
       return console.log(snap);
