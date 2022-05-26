@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from "@angular/forms";   
-import{Peronda}
+import { Pessoas } from '../_interfaces/pessoas.interface';
 
 @Component({
   selector: 'app-editar',
@@ -21,6 +21,9 @@ export class EditarComponent implements OnInit {
   ngOnInit(): void {
   }
   editar(){
-    this.servicoPessoas.editarPessoas()
+    this.servicoPessoas.guardarPessoas(this.nome.value, this.matricula.value, this.salario.value, this.cargo.value, this.especializacao).subscribe((pessoas:Pessoas[])=>{
+      console.log(snap);
+    });
+    this.ngOnInit();
   }
 }
