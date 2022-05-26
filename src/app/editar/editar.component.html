@@ -1,4 +1,3 @@
-
 <input placeholder="nome" [formControl]="nome"/>
 <input placeholder="number" [formControl]="matricula"/>
 <input placeholder="number" [formControl]="salario"/>
@@ -25,9 +24,9 @@
           <td>{{j.salario}}</td>
           <td>{{j.cargo}}</td>
           <td>{{j.especializacao}}</td>
-          <button routerLink="/editar" (click)="editar(j.id)">Editar</button> 
       </tr>
-      
+      <button routerLink="/editar" (click)="editar(j.id)"></button>Editar</button>
+      <button (click)="apagar(j.id)">Apagar</button>
   </tbody>
 </table>
 <div>

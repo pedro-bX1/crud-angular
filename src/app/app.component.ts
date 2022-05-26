@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from "@angular/forms";
 import {Pessoas} from './_interfaces/pessoas.interface';
 
 import { PessoasService } from './_services/pessoas.service';
@@ -10,6 +11,11 @@ import { PessoasService } from './_services/pessoas.service';
 })
 export class AppComponent {
   title = 'crud-angular';
+  nome=new FormControl('');
+  matricula=new FormControl('');
+  salario=new FormControl('');
+  cargo=new FormControl('');
+  especializacao=new FormControl('');
 
   pessoas!:Pessoas[];
 
@@ -20,12 +26,23 @@ export class AppComponent {
 
   }
 
-
   chamarServico(){
-    this.servicoPessoas.obterPessoas().subscribe((pessoas:Pessoas[])=>{
-      console.log(pessoas);
-      this.pessoas=pessoas;
+    this.servicoPessoas.obterPessoas().subscribe((data:Pessoas[])=>{
+    this.pessoas=data;
     });
+  }
+
+  
+
+  apagar(id:string){
+    this.servicoPessoas.apagarPessoas(id).subscribe(snap=>{
+      return console.log(snap);
+    });
+    this.ngOnInit();
+  }
+
+  editar(id:string){
+    this.servicoPessoas.setId(id);
   }
 } 
 
