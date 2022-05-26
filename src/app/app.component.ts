@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from "@angular/forms";
+import { FormControl } from "@angular/forms";
 import {Pessoas} from './_interfaces/pessoas.interface';
+import { HttpResponse } from '@angular/common/http';
 
 import { PessoasService } from './_services/pessoas.service';
 
@@ -27,14 +28,15 @@ export class AppComponent {
   }
 
   chamarServico(){
-    this.servicoPessoas.obterPessoas().subscribe((data:Pessoas[])=>{
-    this.pessoas=data;
+    this.servicoPessoas.obterPessoas().subscribe((pessoas:any)=>{
+		 console.log(pessoas);
+    this.pessoas=this.pessoas;
     });
   }
 
   
   guardar(){
-    this.servicoPessoas.guardarPessoas(this.nome.value, this.matricula.value, this.salario.value, this.cargo.value, this.especializacao).subscribe((pessoas:Pessoas[])=>{
+    this.servicoPessoas.guardarPessoas(this.nome.value, this.matricula.value, this.salario.value, this.cargo.value, this.especializacao.value).subscribe(snap=>{
       console.log(snap);
     });
   }
